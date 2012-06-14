@@ -1,7 +1,6 @@
 qeephpv2-diy
 ============
-
-基于 qeephp v2 的自用修改
+基于 qeephp v2 的自用修改, 建议在php5.3+环境使用
 
 ## core 部分 ##
 1. 增加QBench，用于简单的耗时测试
@@ -25,7 +24,7 @@ qeephpv2-diy
     + 修正qstr方法对浮点数返回字符串的bug
     + 增加nextID_EX方法，用于自增计数
     + execute方法增强，加入QBench记录
-3. 修正QDB_Result_Abstract的fetchObject方法在$return_first为true且无数据时返回错误数据的bug
+3. 修正QDB_Result_Abstract的fetchObject方法在$return_first为true且无数据时仍返回QColl的bug
 4. QDB_Select：
     + 修正getPagination方法对于group by语句的查询错误的bug
     + 增加getPagination方法中对页码超界的容错处理
@@ -41,10 +40,10 @@ qeephpv2-diy
     + 增加__callStatic方法以支持behavior的静态方法绑定(php5.3+)
 
 ## web 部分 ##
-1. 修改QRouter中import方法的逻辑以支持config中路由缓存时间的设定
+1. 修改QRouter中import方法的逻辑以支持在app config中设定路由缓存时间
 2. 优化QView_Output中构造函数的参数顺序
 3. QView_Render_PHP增强，支持arrayAccess接口，修改blocks逻辑(个人定制)
 
 ## q.php ##
-1. 从v3移植 val/arr/request/get/post/cookie/server/env/get_request_uri/get_request_baseuri/get_request_dir/get_request_pathinfo/is_post/is_ajax/is_flash/get_http_header方法
+1. 从v3移植：val/arr/request/get/post/cookie/server/env<br />get_request_uri/get_request_baseuri/get_request_dir/get_request_pathinfo<br />is_post/is_ajax/is_flash/get_http_header 函数方法
 2. 引入class_tools类，以支持在php5.3以下版本中的get_called_class方法
